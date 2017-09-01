@@ -96,12 +96,18 @@ public class CassandraInput extends BaseStep implements StepInterface {
             do {
                 Object[] outputRow = new Object[this.rowColumns.length];
                 Row row = rs.one();
+
+                if (rs.isExhausted()) {
+                    logDetailed("ResultSet exhausted, no rows returned.");
+                    break;
+                }
+
                 incrementLinesInput();
                 rowCount++;
 
                 String[] arrayOfString;
                 int j = (arrayOfString = this.rowColumns).length;
-                
+
                 ColumnDefinitions cd = row.getColumnDefinitions();
 
                 for (int i = 0; i < j; i++) {
