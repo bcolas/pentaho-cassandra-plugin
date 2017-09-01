@@ -57,7 +57,8 @@ import org.w3c.dom.Node;
 @Step( id = "CassandraInput", image = "DatastaxCassandraInput.svg", name = "Cassandra Input",
 description = "Read from a Cassandra table", categoryDescription = "Big Data" )
 public class CassandraInputMeta extends AbstractCassandraMeta {
-    private static final String CQL = "cql";
+    private static final String CASSANDRA_NODES = "cassandra_host";
+    private static final String CQL = "cql_select_query";
     private static final String EXECUTE_FOR_EACH_INPUT = "execute_for_each_input";
     private static final String ROW_LIMIT = "rowLimit";
 
